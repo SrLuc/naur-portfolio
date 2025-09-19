@@ -1,5 +1,16 @@
 <template>
   <div class="min-h-screen bg-black text-white p-6">
+
+    <!--NAVBAR PARA VOLTAR PARA O INICIO COM A SETA-->
+    <nav>
+      <ul class="flex justify-start gap-10 text-lg mb-10">
+        <li>
+          <RouterLink to="/" class="no-underline hover:opacity-70 flex items-center">
+            <span class="text-2xl mr-2">←</span> Home
+          </RouterLink>
+        </li>
+      </ul>
+    </nav>
     <h1 class="text-4xl font-bold mb-10 text-center">Projects</h1>
 
     <div
@@ -21,10 +32,11 @@
 import Card from '../components/Card.vue'
 
 const projects = [
-  {slug: 'project-one', title: 'Project One', description: 'Demo project using MDX'},
-  {slug: 'project-two', title: 'Project Two', description: 'Another demo project'},
-  {slug: 'project-three', title: 'Project Three', description: 'Yet another cool demo'},
-  {slug: 'project-four', title: 'Project Four', description: 'Minimalistic modern design'},
-  {slug: 'project-five', title: 'Project Five', description: 'Dynamic layout example'},
+  {
+    slug: 'HTML Email Development',
+    title: 'HTML Email Development',
+    description: 'Designed and coded responsive HTML email templates, optimized for all devices and major clients, ensuring accessibility, fast loading, and brand consistency'
+  },
+  {slug: 'project-two', title: 'Project Two', description: 'Another demo project'}
 ]
 </script>

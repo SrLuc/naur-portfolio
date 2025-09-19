@@ -1,16 +1,19 @@
 <template>
-  <div>
-    <main>
-      <h1>{{ title }}</h1>
-      <div v-html="content"></div>
+  <div class="min-h-screen bg-gray-50 text-gray-900 p-6">
+    <main class="max-w-3xl mx-auto space-y-8">
+      <!-- Título principal -->
+      <h1 class="text-4xl font-bold text-gray-800">{{ title }}</h1>
+
+      <!-- Conteúdo do Markdown -->
+      <div v-html="content" class="markdown-body"></div>
     </main>
   </div>
 </template>
 
 <script setup>
-import {ref, onMounted} from 'vue'
-import {useRoute} from 'vue-router'
-import {marked} from 'marked'
+import { ref, onMounted } from 'vue'
+import { useRoute } from 'vue-router'
+import { marked } from 'marked'
 
 const route = useRoute()
 const content = ref('')
@@ -24,11 +27,15 @@ onMounted(async () => {
     const markdown = await res.text()
     content.value = marked(markdown)
 
-    const firstLine = markdown.split('\n')[0]
-    title.value = firstLine.replace(/^#\s+/, '') || slug
+    const firstLine = markdown.split('\n').find(line => line.startsWith('# '))
+    title.value = firstLine ? firstLine.replace(/^#\s+/, '') : slug
   } catch (err) {
-    content.value = 'Project not found.'
+    content.value = '<p>Project not found.</p>'
     title.value = 'Error'
   }
 })
 </script>
+
+<style scoped>
+
+</style>
