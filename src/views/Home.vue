@@ -24,7 +24,7 @@
 
     <!-- Conteúdo principal -->
     <main class="z-10 flex flex-col items-center justify-center">
-      <h1 class="text-5xl md:text-6xl font-bold tracking-widest m-0">naur</h1>
+      <h1 class="text-5xl md:text-6xl font-bold tracking-widest m-0">@naur.io</h1>
 
       <p class="text-gray-300 text-lg md:text-xl mt-4 mb-0">
         Check out my <a href="#projects" class="underline text-cyan-400 hover:opacity-80">projects</a> and see how I
