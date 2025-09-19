@@ -62,3 +62,148 @@
 </div>
 
 <!-- Reaproveitando o mesmo CSS que você já me passou -->
+<style>
+/* Container geral */
+.container {
+  padding: 1rem;
+  font-family: 'Inter', sans-serif;
+  background-color: #f9fafb;
+  color: #1f2937;
+}
+
+/* Back button top */
+.back-top-wrapper {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.back-button-top {
+  background: #ffffff;
+  color: #1f2937;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.back-button-top a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Projeto */
+.project-article {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Card */
+.card {
+  background: #fff;
+  padding: 1.5rem 2rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  margin-bottom: 2rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.card h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 0.25rem;
+}
+
+.card p {
+  margin-bottom: 1rem;
+  color: #374151;
+}
+
+.card ul, .card ol {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.card li {
+  margin-bottom: 0.5rem;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+}
+
+/* Bottom Buttons */
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  max-width: 800px;
+  margin: 2rem auto 0 auto;
+  gap: 1rem;
+}
+
+.buttons button {
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;  /* centraliza ícone e texto */
+  justify-content: center;
+}
+
+
+.buttons button a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+}
+
+/* Back button bottom */
+.back-button {
+  background: #ffffff;
+  color: #1f2937;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 0.6rem 1.2rem;
+}
+
+.back-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* GitHub button */
+.github-button {
+  background-color: #24292f;
+  color: #ffffff;
+  padding: 0 0.5rem;
+}
+
+.github-button:hover {
+  background-color: #3b4045;
+  transform: translateY(-2px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+</style>
