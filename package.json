@@ -18,9 +18,6 @@
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
-    "@mdx-js/react": "^3.1.1",
-    "@mdx-js/rollup": "^3.1.1",
-    "@types/mdx-js__react": "^2.0.0",
     "@vitejs/plugin-vue": "^6.0.1",
     "@vue/tsconfig": "^0.8.1",
     "typescript": "~5.8.3",
