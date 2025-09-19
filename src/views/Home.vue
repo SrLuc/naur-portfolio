@@ -6,23 +6,33 @@
     <!-- Navbar acima do nome -->
     <nav class="z-10">
       <ul class="flex justify-center gap-10 text-lg">
-        <li><a href="#projects" class="no-underline hover:opacity-70">Projects</a></li>
-        <li><a href="#blogs" class="no-underline hover:opacity-70">Blogs</a></li>
-        <li><a href="#gallery" class="no-underline hover:opacity-70">Gallery</a></li>
-        <li><a href="#contact" class="no-underline hover:opacity-70">Contact</a></li>
-
+        <li>
+          <RouterLink to="/projects" class="no-underline hover:opacity-70">Projects</RouterLink>
+        </li>
+        <li>
+          <RouterLink to="/blogs" class="no-underline hover:opacity-70">Blogs</RouterLink>
+        </li>
+        <li>
+          <RouterLink to="/gallery" class="no-underline hover:opacity-70">Gallery</RouterLink>
+        </li>
+        <li>
+          <RouterLink to="/contact" class="no-underline hover:opacity-70">Contact</RouterLink>
+        </li>
       </ul>
     </nav>
+
 
     <!-- Conteúdo principal -->
     <main class="z-10 flex flex-col items-center justify-center">
       <h1 class="text-5xl md:text-6xl font-bold tracking-widest m-0">naur</h1>
 
       <p class="text-gray-300 text-lg md:text-xl mt-4 mb-0">
-        Check out my <a href="#projects" class="underline text-cyan-400 hover:opacity-80">projects</a> and see how I bring ideas to life.
+        Check out my <a href="#projects" class="underline text-cyan-400 hover:opacity-80">projects</a> and see how I
+        bring ideas to life.
       </p>
       <p class="text-gray-300 text-lg md:text-xl mt-2 mb-0">
-        Visit my <a href="#blogs" class="underline text-cyan-400 hover:opacity-80">blog</a> to explore thoughts on technology and innovation.
+        Visit my <a href="#blogs" class="underline text-cyan-400 hover:opacity-80">blog</a> to explore thoughts on
+        technology and innovation.
       </p>
     </main>
 
@@ -43,7 +53,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import {ref} from "vue";
 
 const stars = ref(null);
 const stars2 = ref(null);

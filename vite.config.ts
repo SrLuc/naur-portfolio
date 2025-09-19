@@ -1,10 +1,14 @@
+import tailwindcss from '@tailwindcss/vite'
 import {defineConfig} from 'vite'
 import vue from '@vitejs/plugin-vue'
-import tailwindcss from '@tailwindcss/vite'
+import Markdown from 'vite-plugin-md'
 
-
-// https://vite.dev/config/
 export default defineConfig({
-    plugins: [vue(),
-        tailwindcss()],
+    plugins: [
+        vue({
+            include: [/\.vue$/, /\.md$/], // permite importar .md como componente Vue
+        }),
+        tailwindcss(), // integra Tailwind CSS
+        Markdown(), // transforma Markdown em componente Vue
+    ],
 })

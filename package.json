@@ -11,15 +11,22 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.1.13",
     "axios": "^1.12.2",
+    "install": "^0.13.0",
+    "marked": "^16.3.0",
     "tailwindcss": "^4.1.13",
     "vue": "^3.5.21",
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
+    "@mdx-js/react": "^3.1.1",
+    "@mdx-js/rollup": "^3.1.1",
+    "@types/mdx-js__react": "^2.0.0",
     "@vitejs/plugin-vue": "^6.0.1",
     "@vue/tsconfig": "^0.8.1",
     "typescript": "~5.8.3",
     "vite": "^7.1.6",
+    "vite-plugin-md": "^0.21.5",
+    "vite-plugin-mdx": "^3.6.1",
     "vue-tsc": "^3.0.7"
   }
 }
