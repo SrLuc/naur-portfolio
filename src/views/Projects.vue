@@ -1,8 +1,25 @@
 <template>
+
+
   <div class="min-h-screen bg-black text-white p-6">
 
-    <!--NAVBAR PARA VOLTAR PARA O INICIO COM A SETA-->
-    <nav>
+    <div>
+      <div
+          ref="stars"
+          class="absolute w-[200%] h-[200%] bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] top-[-50%] left-[-50%] animate-[moveStars_60s_linear_infinite] pointer-events-none"
+      ></div>
+      <div
+          ref="stars2"
+          class="absolute w-[200%] h-[200%] bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-50 bg-[length:2px_2px] top-[-50%] left-[-50%] animate-[moveStars_120s_linear_infinite] pointer-events-none"
+      ></div>
+      <div
+          ref="stars3"
+          class="absolute w-[200%] h-[200%] bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-30 bg-[length:3px_3px] top-[-50%] left-[-50%] animate-[moveStars_180s_linear_infinite] pointer-events-none"
+      ></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="relative z-10"> <!-- garante que fique acima do fundo -->
       <ul class="flex justify-start gap-10 text-lg mb-10">
         <li>
           <RouterLink to="/" class="no-underline hover:opacity-70 flex items-center">
@@ -11,7 +28,24 @@
         </li>
       </ul>
     </nav>
-    <h1 class="text-4xl font-bold mb-10 text-center">Projects</h1>
+
+    <h1 class="text-4xl font-bold mb-10 text-center">Recent Projects</h1>
+
+    <!-- Fundo de estrelas -->
+    <div>
+      <div
+          ref="stars"
+          class="absolute w-[200%] h-[200%] bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] top-[-50%] left-[-50%] animate-[moveStars_60s_linear_infinite]"
+      ></div>
+      <div
+          ref="stars2"
+          class="absolute w-[200%] h-[200%] bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-50 bg-[length:2px_2px] top-[-50%] left-[-50%] animate-[moveStars_120s_linear_infinite]"
+      ></div>
+      <div
+          ref="stars3"
+          class="absolute w-[200%] h-[200%] bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-30 bg-[length:3px_3px] top-[-50%] left-[-50%] animate-[moveStars_180s_linear_infinite]"
+      ></div>
+    </div>
 
     <div
         class="grid gap-6"
@@ -22,25 +56,16 @@
           :key="project.slug"
           :to="`/projects/${project.slug}`"
       >
-        <Card :title="project.title" :description="project.description"/>
+        <Card :id="project.slug" :title="project.title" :description="project.description" :date="project.date"/>
       </RouterLink>
     </div>
+
   </div>
+
 </template>
 
 <script setup>
 import Card from '../components/Card.vue'
+import projects from "../utils/projects.js"
 
-const projects = [
-  {
-    slug: 'HTML Email Development',
-    title: 'HTML Email Development',
-    description: 'Designed and coded responsive HTML email templates, optimized for all devices and major clients, ensuring accessibility, fast loading, and brand consistency'
-  },
-  {
-    slug: 'Hostel Management-system',
-    title: 'Hostel Management-system',
-    description: 'A complete system for hostel management, centralizing bookings, check-in/check-out, room and bed control, finances, and integrations with platforms like Booking and Airbnb.'
-  }
-]
 </script>
