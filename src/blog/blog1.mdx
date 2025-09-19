@@ -1,0 +1,10 @@
+<Card
+  v-for="post in posts"
+  :key="post.id"
+  :title="post.title"
+  :description="post.summary"
+>
+  <a :href="post.url" target="_blank" class="mt-4 text-cyan-400 underline">
+    Read Post
+  </a>
+</Card>
