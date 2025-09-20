@@ -77,7 +77,7 @@
             class="w-8 h-8"
           />
           <a
-            href="https://www.upwork.com/freelancers/~yourid"
+            href="https://www.upwork.com/freelancers/~01fe23500ab0d726b9"
             target="_blank"
             class="text-purple-400 hover:underline flex-1"
             >Upwork</a
