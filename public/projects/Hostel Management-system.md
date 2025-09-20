@@ -3,7 +3,7 @@
   <!-- Back Button Top -->
   <div class="back-top-wrapper">
     <button class="back-button-top">
-      <a href="/projects">&larr; Back to Projects</a>
+      <a href="../../src/views/Projects.vue">&larr; Back to Projects</a>
     </button>
   </div>
 
