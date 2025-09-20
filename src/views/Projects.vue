@@ -1,8 +1,7 @@
 <template>
+  <div class="bg-black text-white p-6 w-max[100vw] min-h-[100vh] relative overflow-hidden">
 
-
-  <div class="min-h-screen bg-black text-white p-6">
-
+    
     <div>
       <div
           ref="stars"
