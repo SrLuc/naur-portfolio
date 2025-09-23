@@ -1,10 +1,10 @@
 <template>
   <div
-      class="card"
-      @mousemove="handleMouseMove"
-      @mouseleave="resetGlow"
-      @click="incrementViews"
-      :style="glowStyle"
+    class="card"
+    @mousemove="handleMouseMove"
+    @mouseleave="resetGlow"
+    @click="incrementViews"
+    :style="glowStyle"
   >
     <div class="card-header">
       <span class="date">{{ date }}</span>
@@ -20,60 +20,58 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue"
+import { ref, onMounted } from "vue";
 
 const props = defineProps({
-  id: { type: String, required: true }, // deve ser único por card
+  id: { type: String, required: true },
   title: String,
   description: String,
   date: String,
   views: { type: Number, default: 0 },
-})
+});
 
-// estado interno do card
-const localViews = ref(props.views)
+// estado interno
+const localViews = ref(props.views);
+const storageKey = `card-views-${props.id}`;
 
-// chave única para este card
-const storageKey = `card-views-${props.id}`
-
-// lê o valor do localStorage ao montar
+// carrega views
 onMounted(() => {
-  const saved = localStorage.getItem(storageKey)
+  const saved = localStorage.getItem(storageKey);
   if (saved !== null) {
-    localViews.value = parseInt(saved)
+    localViews.value = parseInt(saved);
   }
-})
+});
 
-// glow
-const glowX = ref(0)
-const glowY = ref(0)
-const glowStyle = ref({})
+// glow do mouse
+const glowX = ref(0);
+const glowY = ref(0);
+const glowStyle = ref({});
 
 function handleMouseMove(e) {
-  const card = e.currentTarget.getBoundingClientRect()
-  glowX.value = e.clientX - card.left
-  glowY.value = e.clientY - card.top
+  const card = e.currentTarget.getBoundingClientRect();
+  glowX.value = e.clientX - card.left;
+  glowY.value = e.clientY - card.top;
 
   glowStyle.value = {
     background: `
       radial-gradient(
-        300px circle at ${glowX.value}px ${glowY.value}px,
-        rgba(255,255,255,0.12),
-        transparent 60%
+        400px circle at ${glowX.value}px ${glowY.value}px,
+        rgba(242,135,5,0.15),
+        rgba(89,77,62,0.05) 60%
       )
     `,
-    backdropFilter: "blur(8px)",
-  }
+    backdropFilter: "blur(6px)",
+  };
 }
 
 function resetGlow() {
-  glowStyle.value = { backdropFilter: "blur(8px)" }
+  glowStyle.value = { backdropFilter: "blur(6px)" };
 }
 
-// incrementa apenas o card atual
+// views
 function incrementViews() {
-  localViews.value++
-  localStorage.setItem(storageKey, localViews.value)
+  localViews.value++;
+  localStorage.setItem(storageKey, localViews.value);
 }
 </script>
 
@@ -81,36 +79,40 @@ function incrementViews() {
 .card {
   position: relative;
   background: rgba(17, 17, 17, 0.6);
-  border-radius: 8px;
-  padding: 16px;
-  transition: transform 0.2s, box-shadow 0.2s, background 0.1s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 20px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border 0.25s ease;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
   overflow: hidden;
   color: #fff;
   cursor: pointer;
 }
 
 .card:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(242, 135, 5, 0.25);
 }
 
 .card-header {
   display: flex;
   justify-content: space-between;
-  font-size: 0.85em;
-  margin-bottom: 8px;
-  color: #aaa;
+  font-size: 0.9em;
+  margin-bottom: 12px;
+  color: #a6a6a6;
 }
 
 h2 {
-  margin: 0 0 8px 0;
-  font-size: 1.5em;
+  margin: 0 0 10px 0;
+  font-size: 1.6em;
+  font-weight: 600;
+  color: #f2f2f2;
 }
 
 p {
   margin: 0 0 16px 0;
   color: #ddd;
+  line-height: 1.4;
 }
 
 .read-more {
@@ -118,11 +120,12 @@ p {
   border: none;
   font-weight: bold;
   cursor: pointer;
-  transition: color 0.2s;
-  color: whitesmoke;
+  transition: color 0.3s, transform 0.2s;
+  color: #ffff;
 }
 
 .read-more:hover {
-  color: #80c0ff;
+  color: #fff;
+  transform: translateX(4px);
 }
 </style>

@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+:root {
+  /* 🎨 color theme_Screenshot Capture - 2025-09-23 - 19-44-14 */
+  --color-primary: #f28705; /* Laranja vibrante */
+  --color-dark: #262019; /* Marrom quase preto */
+  --color-medium: #594d3e; /* Marrom médio */
+  --color-light: #f2f2f2; /* Branco suave */
+  --color-gray: #a6a6a6; /* Cinza neutro */
+}
+
 * {
-    font-family: "Ubuntu", sans-serif;
+  font-family: "Ubuntu", sans-serif;
 }
