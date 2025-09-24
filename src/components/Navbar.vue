@@ -5,9 +5,9 @@
       <li>
         <RouterLink
           to="/"
-          class="no-underline hover:opacity-70 flex items-center"
+          class="no-underline hover:opacity-70 flex items-center text-amber-50"
         >
-          <span class="text-2xl mr-2">←</span> Home
+          <span class="text-2xl mr-2 text-amber-50">←</span> Home
         </RouterLink>
       </li>
     </ul>

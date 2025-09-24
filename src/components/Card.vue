@@ -1,26 +1,46 @@
 <template>
   <div
-    class="card"
-    @mousemove="handleMouseMove"
-    @mouseleave="resetGlow"
-    @click="incrementViews"
-    :style="glowStyle"
+      class="card"
+      @mousemove="handleMouseMove"
+      @mouseleave="resetGlow"
+      @click="incrementViews"
+      :style="glowStyle"
   >
-    <div class="card-header">
-      <span class="date">{{ date }}</span>
-      <span class="views">{{ localViews }} views</span>
+    <!-- Efeito de brilho adicional - MAIS SUAVE -->
+    <div class="glow-overlay" :style="glowOverlayStyle"></div>
+
+    <!-- Indicador de visualizações em destaque -->
+    <div v-if="localViews > 10" class="popular-badge">🔥 Popular</div>
+
+    <!-- Conteúdo do card -->
+    <div class="card-content">
+      <div class="card-header">
+        <span class="date">{{ formattedDate }}</span>
+        <span class="views">
+          <span class="eye-icon">👁️</span>
+          {{ localViews }} {{ localViews === 1 ? 'view' : 'views' }}
+        </span>
+      </div>
+
+      <h2>{{ title }}</h2>
+      <p>{{ description }}</p>
+
+      <!-- Slot para conteúdo adicional -->
+      <slot></slot>
+
+      <button @click.stop="incrementViews" class="read-more">
+        Read More
+        <span class="arrow">→</span>
+      </button>
     </div>
 
-    <h2>{{ title }}</h2>
-    <p>{{ description }}</p>
-    <slot></slot>
-
-    <button @click.stop="incrementViews" class="read-more">Read More →</button>
+    <!-- Efeito de borda animada mais suave -->
+    <div class="border-effect"></div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
 
 const props = defineProps({
   id: { type: String, required: true },
@@ -33,6 +53,18 @@ const props = defineProps({
 // estado interno
 const localViews = ref(props.views);
 const storageKey = `card-views-${props.id}`;
+const isHovering = ref(false);
+
+// Formata a data
+const formattedDate = computed(() => {
+  if (!props.date) return '';
+  const date = new Date(props.date);
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric'
+  });
+});
 
 // carrega views
 onMounted(() => {
@@ -42,90 +74,267 @@ onMounted(() => {
   }
 });
 
-// glow do mouse
+// glow do mouse - MAIS SUAVE
 const glowX = ref(0);
 const glowY = ref(0);
 const glowStyle = ref({});
+const glowOverlayStyle = ref({});
 
 function handleMouseMove(e) {
   const card = e.currentTarget.getBoundingClientRect();
   glowX.value = e.clientX - card.left;
   glowY.value = e.clientY - card.top;
+  isHovering.value = true;
 
+  // Glow principal - MUITO mais sutil
   glowStyle.value = {
     background: `
       radial-gradient(
-        400px circle at ${glowX.value}px ${glowY.value}px,
-        rgba(242,135,5,0.15),
-        rgba(89,77,62,0.05) 60%
+        600px circle at ${glowX.value}px ${glowY.value}px,
+        rgba(242, 135, 5, 0.08),
+        rgba(17, 17, 17, 0.7) 40%,
+        rgba(17, 17, 17, 0.7) 100%
       )
     `,
-    backdropFilter: "blur(6px)",
+  };
+
+  // Glow secundário quase imperceptível
+  glowOverlayStyle.value = {
+    background: `
+      radial-gradient(
+        300px circle at ${glowX.value}px ${glowY.value}px,
+        rgba(255, 255, 255, 0.02),
+        transparent 60%
+      )
+    `,
+    opacity: '0.3'
   };
 }
 
 function resetGlow() {
-  glowStyle.value = { backdropFilter: "blur(6px)" };
+  glowStyle.value = {
+    background: 'rgba(17, 17, 17, 0.7)',
+  };
+  glowOverlayStyle.value = {
+    opacity: '0'
+  };
+  isHovering.value = false;
 }
 
-// views
+// views com feedback visual
 function incrementViews() {
   localViews.value++;
   localStorage.setItem(storageKey, localViews.value);
+
+  // Feedback visual temporário
+  const card = event.currentTarget;
+  card.style.transform = 'scale(0.99)';
+  setTimeout(() => {
+    card.style.transform = '';
+  }, 150);
 }
 </script>
 
 <style scoped>
 .card {
   position: relative;
-  background: rgba(17, 17, 17, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
-  padding: 20px;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border 0.25s ease;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+  background: rgba(17, 17, 17, 0.7);
+  border-radius: 16px;
+  padding: 24px;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow:
+      0 4px 15px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
   overflow: hidden;
   color: #fff;
   cursor: pointer;
+  border: 1px solid transparent;
 }
 
 .card:hover {
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 12px 30px rgba(242, 135, 5, 0.25);
+  transform: translateY(-4px) scale(1.01);
+  box-shadow:
+      0 8px 25px rgba(242, 135, 5, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  border-color: rgba(242, 135, 5, 0.1);
+}
+
+.glow-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.8s ease-out;
+  z-index: 1;
+  mix-blend-mode: soft-light;
+}
+
+.card-content {
+  position: relative;
+  z-index: 2;
+}
+
+.popular-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: linear-gradient(45deg, #ff6b35, #f7931e);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.7em;
+  font-weight: 600;
+  animation: gentle-pulse 3s infinite;
+  z-index: 3;
+}
+
+@keyframes gentle-pulse {
+  0%, 100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
 }
 
 .card-header {
   display: flex;
   justify-content: space-between;
-  font-size: 0.9em;
-  margin-bottom: 12px;
+  align-items: center;
+  font-size: 0.85em;
+  margin-bottom: 16px;
   color: #a6a6a6;
 }
 
+.date {
+  background: rgba(242, 135, 5, 0.08);
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.8em;
+  color: #f28705;
+  transition: all 0.3s ease;
+}
+
+.card:hover .date {
+  background: rgba(242, 135, 5, 0.15);
+}
+
+.views {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85em;
+  transition: all 0.3s ease;
+}
+
+.card:hover .views {
+  color: #d0d0d0;
+}
+
+.eye-icon {
+  font-size: 0.9em;
+  opacity: 0.8;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .eye-icon {
+  transform: scale(1.1);
+}
+
 h2 {
-  margin: 0 0 10px 0;
-  font-size: 1.6em;
+  margin: 0 0 12px 0;
+  font-size: 1.5em;
   font-weight: 600;
   color: #f2f2f2;
+  line-height: 1.3;
+  transition: all 0.3s ease;
+}
+
+.card:hover h2 {
+  color: #ffffff;
 }
 
 p {
-  margin: 0 0 16px 0;
-  color: #ddd;
-  line-height: 1.4;
+  margin: 0 0 20px 0;
+  color: #ccc;
+  line-height: 1.5;
+  font-size: 0.95em;
+  transition: all 0.3s ease;
+}
+
+.card:hover p {
+  color: #e0e0e0;
 }
 
 .read-more {
-  background: transparent;
-  border: none;
-  font-weight: bold;
+  color: #f28705;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 600;
   cursor: pointer;
-  transition: color 0.3s, transform 0.2s;
-  color: #ffff;
+  transition: all 0.4s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(242, 135, 5, 0.05);
+  border: 1px solid rgba(242, 135, 5, 0.1);
 }
 
 .read-more:hover {
-  color: #fff;
-  transform: translateX(4px);
+  transform: translateX(3px);
+  background: rgba(242, 135, 5, 0.1);
+  border-color: rgba(242, 135, 5, 0.2);
+}
+
+.arrow {
+  transition: transform 0.4s ease;
+}
+
+.read-more:hover .arrow {
+  transform: translateX(2px);
+}
+
+.border-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 16px;
+  padding: 1px;
+  background: linear-gradient(45deg, transparent, rgba(242, 135, 5, 0.15), transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.card:hover .border-effect {
+  opacity: 1;
+}
+
+/* Melhorias de responsividade */
+@media (max-width: 768px) {
+  .card {
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 1.3em;
+  }
+
+  .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
 }
 </style>

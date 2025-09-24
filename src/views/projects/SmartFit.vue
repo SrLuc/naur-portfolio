@@ -239,5 +239,13 @@ export default {
     flex-direction: column;
     align-items: stretch;
   }
+
+  .buttons button {
+    width: 100%;
+  }
+
+  .card {
+    padding: 1rem;
+  }
 }
 </style>

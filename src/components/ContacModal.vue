@@ -41,27 +41,6 @@
           </a>
         </li>
 
-        <!-- WhatsApp -->
-        <li
-          class="flex items-center gap-4 p-4 rounded-lg bg-[#262019]/60 border border-[#a6a6a6]/20 cursor-pointer transition-all duration-300 hover:shadow-[0_0_25px_rgba(37,211,102,0.5)] hover:scale-[1.02]"
-        >
-          <div
-            class="w-10 h-10 flex items-center justify-center rounded-full bg-[#25D366]/20"
-          >
-            <img
-              src="https://img.icons8.com/ios-filled/30/25D366/whatsapp.png"
-              alt="WhatsApp"
-            />
-          </div>
-          <a
-            href="https://wa.me/558199302999713"
-            target="_blank"
-            class="text-[#25D366] hover:underline flex-1"
-          >
-            WhatsApp
-          </a>
-        </li>
-
         <!-- LinkedIn -->
         <li
           class="flex items-center gap-4 p-4 rounded-lg bg-[#262019]/60 border border-[#a6a6a6]/20 cursor-pointer transition-all duration-300 hover:shadow-[0_0_25px_rgba(10,102,194,0.5)] hover:scale-[1.02]"
