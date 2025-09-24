@@ -3,7 +3,7 @@
   <!-- Back Button Top -->
   <div class="back-top-wrapper">
     <button class="back-button-top">
-      <a href="/projects">&larr; Back to Projects</a>
+      <a href="../../src/views/Projects.vue">&larr; Back to Projects</a>
     </button>
   </div>
 
@@ -47,7 +47,7 @@
   <!-- Bottom Buttons -->
   <div class="buttons">
     <button class="back-button">
-      <a href="/projects">&larr; Back to Projects</a>
+      <a href="../../src/views/Projects.vue">&larr; Back to Projects</a>
     </button>
     <button class="github-button">
       <a href="https://github.com/your-repo" target="_blank">

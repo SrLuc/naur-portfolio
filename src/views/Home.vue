@@ -27,7 +27,6 @@
         <li><RouterLink to="/projects" class="hover:opacity-70">Projects</RouterLink></li>
         <li><RouterLink to="/about" class="hover:opacity-70">About me</RouterLink></li>
         <li><RouterLink to="/blogs" class="hover:opacity-70">Blogs</RouterLink></li>
-        <li><RouterLink to="/gallery" class="hover:opacity-70">Gallery</RouterLink></li>
         <li><button @click="openModal" class="hover:opacity-70">Contact</button></li>
       </ul>
     </nav>
