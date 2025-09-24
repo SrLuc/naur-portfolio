@@ -31,7 +31,7 @@
       <RouterLink
         v-for="project in projects"
         :key="project.slug"
-        :to="`/projects/${project.slug}`"
+        :to="`/projects/${project.slugClean}`"
         class="transform transition duration-500"
       >
         <Card
