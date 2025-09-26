@@ -1,12 +1,18 @@
 <script setup lang="ts">
 
+/*
+* <template>
+  <transition name="fade" mode="out-in">
+    <router-view></router-view>
+  </transition>
+</template>
+*
+* */
 
 </script>
 
 <template>
-  <transition name="fade" mode="out-in">
-    <router-view></router-view>
-  </transition>
+  <router-view></router-view>
 </template>
 
 <style>
