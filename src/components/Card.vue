@@ -1,14 +1,8 @@
 <template>
   <div
       class="card"
-      @mousemove="handleMouseMove"
-      @mouseleave="resetGlow"
       @click="incrementViews"
-      :style="glowStyle"
   >
-    <!-- Efeito de brilho adicional - MAIS SUAVE -->
-    <div class="glow-overlay" :style="glowOverlayStyle"></div>
-
     <!-- Indicador de visualizações em destaque -->
     <div v-if="localViews > 10" class="popular-badge">🔥 Popular</div>
 
@@ -53,7 +47,6 @@ const props = defineProps({
 // estado interno
 const localViews = ref(props.views);
 const storageKey = `card-views-${props.id}`;
-const isHovering = ref(false);
 
 // Formata a data
 const formattedDate = computed(() => {
@@ -74,55 +67,8 @@ onMounted(() => {
   }
 });
 
-// glow do mouse - MAIS SUAVE
-const glowX = ref(0);
-const glowY = ref(0);
-const glowStyle = ref({});
-const glowOverlayStyle = ref({});
-
-function handleMouseMove(e) {
-  const card = e.currentTarget.getBoundingClientRect();
-  glowX.value = e.clientX - card.left;
-  glowY.value = e.clientY - card.top;
-  isHovering.value = true;
-
-  // Glow principal - MUITO mais sutil
-  glowStyle.value = {
-    background: `
-      radial-gradient(
-        600px circle at ${glowX.value}px ${glowY.value}px,
-        rgba(242, 135, 5, 0.08),
-        rgba(17, 17, 17, 0.7) 40%,
-        rgba(17, 17, 17, 0.7) 100%
-      )
-    `,
-  };
-
-  // Glow secundário quase imperceptível
-  glowOverlayStyle.value = {
-    background: `
-      radial-gradient(
-        300px circle at ${glowX.value}px ${glowY.value}px,
-        rgba(255, 255, 255, 0.02),
-        transparent 60%
-      )
-    `,
-    opacity: '0.3'
-  };
-}
-
-function resetGlow() {
-  glowStyle.value = {
-    background: 'rgba(17, 17, 17, 0.7)',
-  };
-  glowOverlayStyle.value = {
-    opacity: '0'
-  };
-  isHovering.value = false;
-}
-
 // views com feedback visual
-function incrementViews() {
+function incrementViews(event) {
   localViews.value++;
   localStorage.setItem(storageKey, localViews.value);
 
@@ -157,19 +103,6 @@ function incrementViews() {
       0 8px 25px rgba(242, 135, 5, 0.1),
       inset 0 1px 0 rgba(255, 255, 255, 0.08);
   border-color: rgba(242, 135, 5, 0.1);
-}
-
-.glow-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.8s ease-out;
-  z-index: 1;
-  mix-blend-mode: soft-light;
 }
 
 .card-content {
@@ -321,7 +254,7 @@ p {
   opacity: 1;
 }
 
-/* Melhorias de responsividade */
+/* Responsividade */
 @media (max-width: 768px) {
   .card {
     padding: 20px;
