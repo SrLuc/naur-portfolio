@@ -15,14 +15,12 @@
       </div>
 
       <!-- Conteúdo central -->
-      <div class="z-10 flex flex-col items-center mb-40">
-        <h1 class="text-4xl md:text-5xl font-bold mb-3 shadow-2xs">
-          Ruan Rickelme Ramos
-        </h1>
-        <p class="text-lg md:text-xl max-w-xl shadow-2xl">
+      <div class="z-10 flex flex-col items-center mb-40 p-2.5">
+        <h1 class="text-4xl md:text-5xl font-bold mb-3">Ruan Rickelme Ramos</h1>
+        <p class="text-xl sm:text-2xl md:text-3xl">
           Turning ideas into solutions while exploring the world.
         </p>
-        <p class="text-md md:text-lg mt-2 max-w-xl shadow-2xl">
+        <p class="text-xl sm:text-2xl md:text-3xl mt-2">
           5 years building solutions while exploring the world.
         </p>
       </div>
@@ -37,28 +35,31 @@
 
     <!-- About Me Section com animação -->
     <transition name="fade-slide">
-      <section
-        v-if="showAbout"
-        class="w-full px-5 bg-[#262019] text-white"
-      >
-        <div class="max-w-6xl mx-auto py-12 md:py-20 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <section v-if="showAbout" class="w-full px-5 bg-[#262019] text-white">
+        <div
+          class="max-w-6xl mx-auto py-12 md:py-20 grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
+        >
           <!-- Coluna esquerda -->
           <div class="space-y-6 text-left">
             <h2 class="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
             <p class="text-lg md:text-xl">
-              I’m a digital nomad and freelance developer, specializing in creating custom systems.  
-              I hold a postgraduate degree in Software Quality from the Federal University of Pernambuco.
+              I’m a digital nomad and freelance developer, specializing in
+              creating custom systems. I hold a postgraduate degree in Software
+              Quality from the Federal University of Pernambuco.
             </p>
             <p class="text-lg md:text-xl">
-              I am a resident of Porto Digital, the largest tech hub in Brazil, and have also been a developer at Motorola.
+              I am a resident of Porto Digital, the largest tech hub in Brazil,
+              and have also been a developer at Motorola.
             </p>
           </div>
 
           <!-- Coluna direita -->
           <div class="space-y-6 text-left md:text-right">
             <p class="text-lg md:text-xl">
-              My dream is to solve real-world problems through technology while traveling the world.  
-              I also have a strong passion for volunteer work, love cultivating and planting, and enjoy participating in cultural immersions wherever I go.
+              My dream is to solve real-world problems through technology while
+              traveling the world. I also have a strong passion for volunteer
+              work, love cultivating and planting, and enjoy participating in
+              cultural immersions wherever I go.
             </p>
           </div>
         </div>
@@ -67,8 +68,8 @@
 
     <!-- Services Section -->
     <section class="w-full py-10 px-5 text-center">
-      <div class="bg-[#594d3e] py-10 px-5 rounded-lg max-w-5xl mx-auto mb-8">
-        <h2 class="text-2xl md:text-3xl font-bold text-white">
+      <div class="py-10 px-5 rounded-xl max-w-5xl mx-auto mb-8 shadow-2xl">
+        <h2 class="text-2xl md:text-3xl font-bold text-[#594d3e]">
           Services Designed to Help Your Business Grow
         </h2>
       </div>
@@ -79,29 +80,8 @@
         <ServiceCard
           title="Hostel Management Systems"
           description="Custom systems to manage rooms, reservations, and guests with ease. Save time and keep your hostel running smoothly."
-          image="@/assets/imgs/hostel-system.png"
+          image="../../src/assets/imgs/servicesImgs/host.png"
           color="bg-[#a9733d]"
-        />
-
-        <ServiceCard
-          title="Web Development"
-          description="Responsive websites tailored to your business needs."
-          image="@/assets/imgs/web-dev.png"
-          color="bg-[#f28705]"
-        />
-
-        <ServiceCard
-          title="UI/UX Design"
-          description="Engaging interfaces for seamless user experience."
-          image="@/assets/imgs/ui-ux.png"
-          color="bg-[#594d3e]"
-        />
-
-        <ServiceCard
-          title="Consulting"
-          description="Expert guidance to make your projects succeed efficiently."
-          image="@/assets/imgs/consulting.png"
-          color="bg-[#262019]"
         />
       </div>
     </section>
@@ -111,7 +91,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import backgroundImage from "../assets/imgs/background2.jpg";
-import profilePicture from "../assets/imgs/me.png";
+//import profilePicture from "../assets/imgs/me.png";
 import Navbar from "../components/Navbar.vue";
 import ServiceCard from "../components/ServiceCard.vue";
 

@@ -19,6 +19,13 @@
         </p>
       </div>
 
+         <!-- Images Card -->
+      <div class="card">
+        <h2>Project Screenshots</h2>
+        <img src="" alt="Smart Fit Filter View" />
+        <img src="" alt="Smart Fit Mobile View" />
+      </div>
+
       <!-- Main Card: Features, Responsibilities, Usage -->
       <div class="card">
         <h2>Features</h2>
@@ -46,12 +53,7 @@
         </ul>
       </div>
 
-      <!-- Images Card -->
-      <div class="card">
-        <h2>Project Screenshots</h2>
-        <img src="" alt="Smart Fit Filter View" />
-        <img src="" alt="Smart Fit Mobile View" />
-      </div>
+   
     </div>
 
     <!-- Bottom Buttons -->

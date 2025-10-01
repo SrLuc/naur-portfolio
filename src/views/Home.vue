@@ -65,7 +65,7 @@
         @click.self="closeWelcome"
       >
         <div
-          class="bg-[#262019] text-white p-8 rounded-xl shadow-xl animate-float max-w-sm text-center"
+          class="bg-[#262019] text-white p-8 rounded-xl shadow-xl animate-float max-w-sm text-center m-5"
         >
           <h2 class="text-3xl font-bold mb-4">Welcome to my Portfolio</h2>
           <p class="mb-6 text-gray-300 leading-relaxed">

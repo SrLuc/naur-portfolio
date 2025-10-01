@@ -5,6 +5,7 @@
     <!-- Se não existir, renderiza mensagem de erro -->
     <p v-else>Project not found.</p>
   </div>
+
 </template>
 
 <script setup>
