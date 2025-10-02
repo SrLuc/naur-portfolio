@@ -112,6 +112,13 @@
         >
         to explore thoughts on technology and innovation.
       </p>
+      <p class="text-gray-300 text-lg md:text-xl mt-2">
+        Also see my gallery
+        <a href="/gallery" class="underline text-cyan-400 hover:opacity-80"
+        >gallery</a
+        >
+        to view more about my travels and volunteering.
+      </p>
     </main>
 
     <ContacModal v-model="isModalOpen" />
