@@ -80,7 +80,7 @@
         <ServiceCard
           title="Hostel Management Systems"
           description="Custom systems to manage rooms, reservations, and guests with ease. Save time and keep your hostel running smoothly."
-          image="../../src/assets/imgs/servicesImgs/host.png"
+          image="../../src/assets/imgs/servicesImgs/host.svg"
           color="bg-[#a9733d]"
         />
       </div>

@@ -7,9 +7,7 @@
       bgColor,
     ]"
   >
-    <div class="w-16 h-16 flex items-center justify-center mb-4">
-      <img :src="icon" alt="" class="w-10 h-10 object-contain" />
-    </div>
+    <img :src="icon" alt="" class="w-18 h- object-contain" />
     <a
       :href="href"
       :target="target"

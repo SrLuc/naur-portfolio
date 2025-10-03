@@ -61,7 +61,7 @@
         />
 
         <ContactCard
-          icon="../../public/icons/vsco.png"
+          icon="https://images.icon-icons.com/2622/PNG/512/brand_vsco_icon_158631.png"
           label="VSCO"
           href="https://vsco.co/rickelmeramos/gallery"
           bgColor="bg-[#262019]/60"
@@ -70,7 +70,7 @@
           target="_blank"
         />
         <ContactCard
-          icon="../../public/icons/soundcloud.png"
+          icon="https://cdn-icons-png.flaticon.com/512/145/145809.png"
           label="SoundCloud"
           href="https://soundcloud.com/ruan-lucena-828574018"
           bgColor="bg-[#262019]/60"
