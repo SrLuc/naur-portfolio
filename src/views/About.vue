@@ -40,26 +40,38 @@
           class="max-w-6xl mx-auto py-12 md:py-20 grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
         >
           <!-- Coluna esquerda -->
-          <div class="space-y-6 text-left">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
-            <p class="text-lg md:text-xl">
-              I’m a digital nomad and freelance developer, specializing in
-              creating custom systems. I hold a postgraduate degree in Software
-              Quality from the Federal University of Pernambuco.
-            </p>
-            <p class="text-lg md:text-xl">
-              I am a resident of Porto Digital, the largest tech hub in Brazil,
-              and have also been a developer at Motorola.
+          <div class="space-y-6">
+            <h2 class="text-4xl md:text-4xl font-bold">Who i am ?</h2>
+            <p class="text-xl md:text-xl">
+              My name is Ruan Rickelme Ramos, a software engineer with a deep
+              appreciation for continuous learning and human connection. Beyond
+              technology, I’m passionate about experiences that bring people
+              together, from cultural exchanges to permaculture, gardening, and
+              initiatives with a positive ecological impact.
             </p>
           </div>
 
           <!-- Coluna direita -->
           <div class="space-y-6 text-left md:text-right">
-            <p class="text-lg md:text-xl">
-              My dream is to solve real-world problems through technology while
-              traveling the world. I also have a strong passion for volunteer
-              work, love cultivating and planting, and enjoy participating in
-              cultural immersions wherever I go.
+            <h2 class="text-4xl md:text-4xl font-bold text-right">What I do</h2>
+            <p class="text-xl md:text-xl text-right">
+              With 5 years of experience, I’ve built digital products from
+              management systems to creative web apps. I’ve worked at Motorola
+              and Porto Digital, gaining strong expertise in software
+              engineering and quality. I also hold a postgraduate degree in
+              Software Engineering focused on Software Quality.
+            </p>
+          </div>
+
+          <!-- Coluna esquerda -->
+          <div class="space-y-6">
+            <h2 class="text-4xl md:text-4xl font-bold">My Dreams</h2>
+            <p class="text-xl md:text-xl">
+              My dream is to keep solving real-world problems through technology
+              while exploring the world. I aspire to merge my career with my
+              passion for ecological awareness, contributing to projects that
+              generate positive impact — whether through sustainable practices,
+              community work, or technology that makes people’s lives better.
             </p>
           </div>
         </div>
@@ -80,7 +92,7 @@
         <ServiceCard
           title="Hostel Management Systems"
           description="Custom systems to manage rooms, reservations, and guests with ease. Save time and keep your hostel running smoothly."
-          image="../../src/assets/imgs/servicesImgs/host.svg"
+          image="https://cdni.iconscout.com/illustration/premium/thumb/hostel-room-illustration-svg-download-png-11756742.png"
           color="bg-[#a9733d]"
         />
       </div>

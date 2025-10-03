@@ -19,7 +19,7 @@
         </button>
       </div>
       <!-- Service Image -->
-      <img v-if="image" :src="image" alt="" class="w-full h-70" />
+      <img v-if="image" :src="image" alt="" class="w-full" />
     </div>
   </div>
 </template>
