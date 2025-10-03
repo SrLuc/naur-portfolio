@@ -13,7 +13,7 @@
       </div>
       <div>
         <button
-          class="bg-white text-gray-800 px-4 py-2 rounded hover:bg-gray-200 transition"
+          class="px-5 py-2 rounded-lg bg-white/10 backdrop-blur-md border border-white/20 text-white font-medium hover:bg-white/20 hover:border-white/30 transition"
         >
           Discover more
         </button>

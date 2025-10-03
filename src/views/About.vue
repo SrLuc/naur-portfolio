@@ -4,10 +4,11 @@
     <div
       class="relative flex flex-col items-center justify-center w-full h-screen text-white text-center overflow-hidden shadow-2xl"
     >
-      <div
-        class="absolute inset-0 bg-cover bg-center -z-10 shadow-2xl"
-        :style="{ backgroundImage: `url(${backgroundImage})` }"
-      ></div>
+      <img
+        :src="isMobile ? mobileImage : backgroundImage"
+        alt="Background"
+        class="absolute inset-0 w-full h-full -z-10 shadow-2xl object-cover"
+      />
 
       <!-- Navbar -->
       <div class="absolute top-5 left-5 z-20">
@@ -24,13 +25,6 @@
           5 years building solutions while exploring the world.
         </p>
       </div>
-
-      <!-- Foto maior, na parte de baixo -->
-      <img
-        :src="profilePicture"
-        alt="Rickelme Ramos"
-        class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[300px] md:w-[420px] object-contain z-10"
-      />
     </div>
 
     <!-- About Me Section com animação -->
@@ -102,7 +96,7 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-import backgroundImage from "../assets/imgs/background2.jpg";
+import backgroundImage from "../assets/imgs/yo4.jpg";
 //import profilePicture from "../assets/imgs/me.png";
 import Navbar from "../components/Navbar.vue";
 import ServiceCard from "../components/ServiceCard.vue";
