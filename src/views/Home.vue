@@ -41,9 +41,13 @@
           <RouterLink to="/about" class="hover:opacity-70">About me</RouterLink>
         </li>
         <li>
+          <RouterLink to="/services" class="hover:opacity-70"
+            >Services</RouterLink
+          >
+        </li>
+        <li>
           <RouterLink to="/blogs" class="hover:opacity-70">Blogs</RouterLink>
         </li>
-
         <li>
           <button @click="openModal" class="hover:opacity-70">Contact</button>
         </li>
