@@ -1,7 +1,7 @@
 <template>
   <!-- Navbar -->
   <nav
-    class="fixed top-5 left-1/2 -translate-x-1/2 z-50 w-[90%] md:w-[80%] flex justify-between items-center px-6 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-md"
+    class="fixed top-5 left-1/2 -translate-x-1/2 z-50 w-[90%] md:w-[70%] flex justify-between items-center px-6 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-md"
   >
     <!-- Botão voltar à esquerda -->
     <RouterLink
@@ -12,7 +12,9 @@
     </RouterLink>
 
     <!-- Links à direita -->
-    <ul class="flex gap-6 md:gap-10 text-white text-sm md:text-base">
+    <ul
+      class="flex gap-4 sm:gap-10 md:gap-5 text-white text-xs sm:text-sm md:text-base"
+    >
       <li>
         <RouterLink to="/projects" class="hover:opacity-80 transition"
           >Projects</RouterLink
