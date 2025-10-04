@@ -33,7 +33,7 @@
         <ContactCard
           icon="https://img.icons8.com/ios-filled/50/0A66C2/linkedin.png"
           label="LinkedIn"
-          href="https://linkedin.com/in/ruan-lucena-ramos-387623232/"
+          href="https://www.linkedin.com/in/ruan-rickelme-ramos-387623232/"
           bgColor="bg-[#262019]/60"
           textColor="#0A66C2"
           hoverColor="rgba(10,102,194,0.5)"
